@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Windows 7 Start Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #c4c4c4;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .start-button {
+      width: 80px;
+      height: 35px;
+      background: linear-gradient(to top, #0078d4, #0066b3);
+      color: white;
+      text-align: center;
+      line-height: 35px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      user-select: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      transition: background 0.3s ease;
+    }
+
+    .start-button:hover {
+      background: linear-gradient(to top, #0066b3, #005c99);
+    }
+
+    .start-menu {
+      display: none;
+      position: absolute;
+      bottom: 70px;
+      left: 20px;
+      width: 250px;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      color: white;
+      font-size: 14px;
+    }
+
+    .start-menu.open {
+      display: block;
+    }
+
+    .start-header {
+      background: linear-gradient(to bottom, #0078d4, #005b8d);
+      padding: 8px 15px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      border-radius: 5px 5px 0 0;
+      font-size: 14px;
+    }
+
+    .start-header .arrow {
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+    .menu-content {
+      padding: 10px;
+    }
+
+    .category {
+      margin-bottom: 12px;
+    }
+
+    .category-title {
+      font-size: 14px;
+      font-weight: bold;
+      padding-bottom: 5px;
+    }
+
+    .category ul {
+      list-style: none;
+    }
+
+    .category li {
+      padding: 6px 0;
+      cursor: pointer;
+      border-radius: 3px;
+      transition: background 0.3s;
+    }
+
+    .category li:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .start-footer {
+      background: linear-gradient(to top, #0078d4, #005b8d);
+      padding: 8px 15px;
+      text-align: center;
+      border-radius: 0 0 5px 5px;
+      cursor: pointer;
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .start-footer:hover {
+      background: linear-gradient(to top, #0066b3, #005c99);
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Start Menu Button -->
+  <div class="start-button" onclick="toggleMenu()">
+    <span>Start</span>
+  </div>
+
+  <!-- Start Menu -->
+  <div class="start-menu">
+    <div class="start-header">
+      <span class="user-name">User</span>
+      <span class="arrow">&gt;</span>
+    </div>
+
+    <!-- Menu Categories -->
+    <div class="menu-content">
+      <div class="category">
+        <span class="category-title">Programs</span>
+        <ul>
+          <li>Microsoft Word</li>
+          <li>Internet Explorer</li>
+          <li>Windows Media Player</li>
+        </ul>
+      </div>
+      <div class="category">
+        <span class="category-title">Documents</span>
+        <ul>
+          <li>My Documents</li>
+          <li>Downloads</li>
+        </ul>
+      </div>
+      <div class="category">
+        <span class="category-title">Control Panel</span>
+        <ul>
+          <li>Network</li>
+          <li>System</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Start Menu Footer -->
+    <div class="start-footer">
+      <span>Shut down</span>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.querySelector('.start-menu');
+      menu.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
